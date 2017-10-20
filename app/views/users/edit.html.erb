@@ -1,0 +1,32 @@
+<div class='row'>
+    <div class='col-md-12'>
+        <h4> Edit</h4>
+    </div>
+</div>
+
+<div class='row'>
+    <div class='col-md-2'></div>
+    <div class='col-md-8'>
+        <form class='form-group' action='<%= update_path @user.id %>' method='post'>
+            <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+            <input type='hidden' name='_method' value='patch'>
+            <!-- Name  -->
+            <div class="form-group">
+                <%# <label for="exampleInputName1">Email address</label> %>
+                <input name='user[name]' type="name" 
+                id='name' class="form-control" placeholder="<%= @user.name %>" value="<%= @user.name %>">
+                <small id="nameHelp" class="form-text text-muted">We'll never share your name with anyone else.</small>
+            </div>
+            <!-- Email  -->
+            <div class="form-group">
+                <%# <label for="exampleInputEmail1">Email address</label> %>
+                <input name='user[email]' type="email" id='email' class="form-control" placeholder="<%= @user.email %>" value="<%= @user.email %>">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+    </div>
+    <div class='col-md-2'></div>
+</div>

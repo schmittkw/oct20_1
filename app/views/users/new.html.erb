@@ -1,0 +1,53 @@
+<div class='row'>
+    <div class='col-md-12'>
+        <h4> Register</h4>
+    </div>
+</div>
+
+<div class='row'>
+    <div class='col-md-2'></div>
+    <div class='col-md-8'>
+        <form class='form-group' action='<%= register_path %>' method='post'>
+            <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+            <!-- Name  -->
+            <div class="form-group">
+                <%# <label for="exampleInputName1">Email address</label> %>
+                <input name='user[name]' type="name" class="form-control" placeholder="Enter name">
+                <small id="nameHelp" class="form-text text-muted">We'll never share your name with anyone else.</small>
+            </div>
+            <!-- Email  -->
+            <div class="form-group">
+                <%# <label for="exampleInputEmail1">Email address</label> %>
+                <input name='user[email]' type="email" class="form-control" placeholder="Email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <!-- Password  -->
+            <div class="form-group">
+                <%# <label for="exampleInputPassword1">Password</label> %>
+                <input name='user[password]' type="password" class="form-control" placeholder="Password">
+                <small id="emailHelp" class="form-text text-muted">Your password is safe with us.</small>
+            </div>
+            <!-- Password Confirmation  -->
+            <div class="form-group">
+                <%# <label for="exampleInputPassword1">Password</label> %>
+                <input name='user[password_confirmation]' type="password" class="form-control" placeholder="Password Confirmation">
+            </div>
+            <%# <div class="form-check">
+                <label class="form-check-label">
+                <input type="checkbox" class="form-check-input">
+                Check me out
+                </label>
+            </div> %>
+            <div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+        </form>
+    <form method='get' action='/login'>
+        <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+        <div>
+            <button type="submit" class="btn btn-warning">Already Registered</button>
+        </div>
+    </form>
+    </div>
+    <div class='col-md-2'></div>
+</div>
