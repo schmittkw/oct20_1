@@ -3,55 +3,55 @@
  <h1>show page</h1>
   
   <h2><%= @user.name %></h2>
- +<a href='<%= edit_path @user.id %>'>Edit Profile</a>
- +
- +<div class='row'>
- +    <div class='col-md-12'>
- +        <h4> New Secret</h4>
- +    </div>
- +</div>
- +
- +<div class='row'>
- +    <div class='col-md-2'></div>
- +    <div class='col-md-8'>
- +        <form class='form-group' action='<%= create_secret_path %>' method='post'>
- +            <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
- +            <!-- Name  -->
- +            <div class="form-group">
- +                <%# <label for="exampleInputName1">Email address</label> %>
- +                <%# <input name='secret[content]' type="textarea" 
- +                id='name' class="form-control" placeholder="New Secret"> %>
- +                <textarea name='secret[content]' type="text" 
- +                id='name' class="form-control" placeholder="New Secret"></textarea>
- +            </div>
- +            <div>
- +                <button type="submit" class="btn btn-primary">Create Secret</button>
- +            </div>
- +        </form>
- +        <form class='form-group' action='<%= secrets_path %>' method='get'>
- +
- +            <div>
- +                <button type="submit" class="btn btn-warning">Show all Secrets</button>
- +            </div>
- +        </form>
- +        <div style='display:inline_block;'>
- +        <h2>Secrets Made</h2>
- +        <% @secrets_made.each do |secret| %>
- +            <h4><%= secret.content %></h4>
- +            <%= secret.likes.count %> Likes
- +            <p><a href="<%= destroy_secret_path(secret.id) %>" data-method='delete'>Destroy</a></p>
- +            <p></p>
- +        <% end %>
- +        </div>
- +        <div style='display:inline_block;'>
- +        
- +        </div>
- +    </div>
- +    <div class='col-md-2'>
- +        <h2>Secrets Liked:</h2>
- +        <% @user.secrets_liked.each do |secret| %>
- +            <h4><%= secret.content %></h4>
- +            <%= secret.likes.count %> Likes
- +            <p></p>
- +        <% end %></div>
- +</div> 
+ <a href='<%= edit_path @user.id %>'>Edit Profile</a>
+ 
+ <div class='row'>
+     <div class='col-md-12'>
+         <h4> New Secret</h4>
+     </div>
+ </div>
+ 
+ <div class='row'>
+     <div class='col-md-2'></div>
+     <div class='col-md-8'>
+         <form class='form-group' action='<%= create_secret_path %>' method='post'>
+             <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+             <!-- Name  -->
+             <div class="form-group">
+                 <%# <label for="exampleInputName1">Email address</label> %>
+                 <%# <input name='secret[content]' type="textarea" 
+                 id='name' class="form-control" placeholder="New Secret"> %>
+                 <textarea name='secret[content]' type="text" 
+                 id='name' class="form-control" placeholder="New Secret"></textarea>
+             </div>
+             <div>
+                 <button type="submit" class="btn btn-primary">Create Secret</button>
+             </div>
+         </form>
+         <form class='form-group' action='<%= secrets_path %>' method='get'>
+ 
+             <div>
+                 <button type="submit" class="btn btn-warning">Show all Secrets</button>
+             </div>
+         </form>
+         <div style='display:inline_block;'>
+         <h2>Secrets Made</h2>
+         <% @secrets_made.each do |secret| %>
+             <h4><%= secret.content %></h4>
+             <%= secret.likes.count %> Likes
+             <p><a href="<%= destroy_secret_path(secret.id) %>" data-method='delete'>Destroy</a></p>
+             <p></p>
+         <% end %>
+         </div>
+         <div style='display:inline_block;'>
+         
+         </div>
+     </div>
+     <div class='col-md-2'>
+         <h2>Secrets Liked:</h2>
+         <% @user.secrets_liked.each do |secret| %>
+             <h4><%= secret.content %></h4>
+             <%= secret.likes.count %> Likes
+             <p></p>
+         <% end %></div>
+ </div> 

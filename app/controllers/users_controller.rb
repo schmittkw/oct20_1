@@ -21,10 +21,10 @@ class UsersController < ApplicationController
          def show
              @user = User.find(session[:user_id])
              # @user = User.find(params[:id])
-    +        # @user.secrets_liked.any? secret
-    +        # @secrets_liked = User.secrets_liked.all
-    +        @secrets_made = Secret.where(user_id: session[:user_id])
-    +        render 'users/show'
+            # @user.secrets_liked.any? secret
+            # @secrets_liked = User.secrets_liked.all
+            @secrets_made = Secret.where(user_id: session[:user_id])
+            render 'users/show'
          end
      
          def edit

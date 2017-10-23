@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  +  
-  +
-  +  # secrets
-  +  get 'secrets/show' => 'secrets#show', as: 'secrets'
-  +  post 'secrets/create' => 'secrets#create', as: 'create_secret'
-  +  delete 'destroy/secret/:id' => 'secrets#destroy', as: 'destroy_secret'
-  +  post 'like/secret/:id' => 'secrets#like', as: 'like'
-  +  delete 'unlike/secret/:id' => 'secrets#unlike', as: 'unlike'
-  +  get 'thisissupersecretlink/noway' => 'secrets#show_all'
+    
+  
+    # secrets
+    get 'secrets/show' => 'secrets#show', as: 'secrets'
+    post 'secrets/create' => 'secrets#create', as: 'create_secret'
+    delete 'destroy/secret/:id' => 'secrets#destroy', as: 'destroy_secret'
+    post 'like/secret/:id' => 'secrets#like', as: 'like'
+    delete 'unlike/secret/:id' => 'secrets#unlike', as: 'unlike'
+    get 'thisissupersecretlink/noway' => 'secrets#show_all'
      # get 'sessions/new'
      root 'users#new'
    
