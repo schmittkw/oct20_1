@@ -18,6 +18,8 @@ class SecretsController < ApplicationController
   end
 
   def destroy
+    likes = Like.where(secret_id: params[:id])
+    likes.each {|a| a.delete}
     secret = Secret.find(params[:id])
     secret.delete
     return redirect_to :back
